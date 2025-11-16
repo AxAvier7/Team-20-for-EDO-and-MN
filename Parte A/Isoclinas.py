@@ -28,15 +28,15 @@ class Ecuation:
         # Gráfico 1: Campo de pendientes
         ax1.quiver(X, Y, U, V, color='blue', alpha=0.7, scale=20, width=0.005)
         ax1.set_title('Slopes Field', fontsize=14)
-        ax1.set_xlabel('x', fontsize=12)
-        ax1.set_ylabel('y', fontsize=12)
+        ax1.set_xlabel('t', fontsize=12)
+        ax1.set_ylabel('Q', fontsize=12)
         ax1.grid(True, alpha=0.3)
         ax1.axhline(y=0, color='k', linestyle='-', alpha=0.3)
         ax1.axvline(x=0, color='k', linestyle='-', alpha=0.3)
         
         # Gráfico 2: Isoclinas
         if Slopes is None:
-            # Calcular Slopes automáticamente basado en el rango de valores
+            # Calcular las pendientes automáticamente basado en el rango de valores
             valores_pendiente = np.linspace(np.min(V), np.max(V), 8)
             Slopes = valores_pendiente[::2]  # Tomar algunos valores representativos
         
@@ -48,8 +48,8 @@ class Ecuation:
             ax2.clabel(contorno, inline=True, fontsize=8, fmt=f'm={m:.2f}')
         
         ax2.set_title('Isoclines', fontsize=14)
-        ax2.set_xlabel('x', fontsize=12)
-        ax2.set_ylabel('y', fontsize=12)
+        ax2.set_xlabel('t', fontsize=12)
+        ax2.set_ylabel('Q', fontsize=12)
         ax2.grid(True, alpha=0.3)
         ax2.axhline(y=0, color='k', linestyle='-', alpha=0.3)
         ax2.axvline(x=0, color='k', linestyle='-', alpha=0.3)
@@ -65,7 +65,7 @@ class Ecuation:
         
         # Graficar campo de pendientes
         x = np.linspace(xRange[0], xRange[1], 20)
-        y = np.linspace(-5, 5, 20)
+        y = np.linspace(xRange[0], xRange[1], 20)
         X, Y = np.meshgrid(x, y)
         U = np.ones_like(X)
         V = self.ecuacion(X, Y)
@@ -91,15 +91,15 @@ class Ecuation:
                     label=f'y({xRange[0]}) = {y0}')
         
         plt.title('Soluciones de la Ecuación Diferencial', fontsize=14)
-        plt.xlabel('x', fontsize=12)
-        plt.ylabel('y', fontsize=12)
+        plt.xlabel('t', fontsize=12)
+        plt.ylabel('Q', fontsize=12)
         plt.grid(True, alpha=0.3)
         plt.legend()
         plt.axhline(y=0, color='k', linestyle='-', alpha=0.3)
         plt.axvline(x=0, color='k', linestyle='-', alpha=0.3)
         plt.show()
         
-    # MÉTODOS NUMÉRICOS CON GRÁFICAS INDIVIDUALES
+    # GRÁFICAS DE LOS MÉTODOS
     def graficar_euler(self, y0, x_range=(-5, 5), h=0.1, figsize=(10, 8)):
         """Calcula y grafica la solución usando el método de Euler"""
         x_vals, y_vals = self.euler_method(y0, x_range, h)
@@ -136,7 +136,7 @@ class Ecuation:
         
         return x_vals, y_vals
 
-    # MÉTODOS DE CÁLCULO (sin gráficas)
+    # CÁLCULO DE MÉTODOS
     def euler_method(self, y0, x_range, h=0.1):
         x_vals = np.arange(x_range[0], x_range[1] + h, h)
         y_vals = np.zeros(len(x_vals))
@@ -155,10 +155,10 @@ class Ecuation:
         y_vals[0] = y0
         
         for i in range(1, len(x_vals)):
-            y_pred = y_vals[i-1] + h * self.ecuacion(x_vals[i-1], y_vals[i-1])
+            y_Euler = y_vals[i-1] + h * self.ecuacion(x_vals[i-1], y_vals[i-1])
             y_vals[i] = y_vals[i-1] + h * 0.5 * (
                 self.ecuacion(x_vals[i-1], y_vals[i-1]) + 
-                self.ecuacion(x_vals[i], y_pred)
+                self.ecuacion(x_vals[i], y_Euler)
             )
         
         return x_vals, y_vals
@@ -169,12 +169,12 @@ class Ecuation:
         y_vals[0] = y0
         
         for i in range(1, len(x_vals)):
-            k1 = h * self.ecuacion(x_vals[i-1], y_vals[i-1])
-            k2 = h * self.ecuacion(x_vals[i-1] + h/2, y_vals[i-1] + k1/2)
-            k3 = h * self.ecuacion(x_vals[i-1] + h/2, y_vals[i-1] + k2/2)
-            k4 = h * self.ecuacion(x_vals[i-1] + h, y_vals[i-1] + k3)
+            k1 = self.ecuacion(x_vals[i-1], y_vals[i-1])
+            k2 = self.ecuacion(x_vals[i-1] + h/2, y_vals[i-1] + k1/2)
+            k3 = self.ecuacion(x_vals[i-1] + h/2, y_vals[i-1] + k2/2)
+            k4 = self.ecuacion(x_vals[i-1] + h, y_vals[i-1] + k3)
             
-            y_vals[i] = y_vals[i-1] + (k1 + 2*k2 + 2*k3 + k4) / 6
+            y_vals[i] = y_vals[i-1] + h * (k1 + 2*k2 + 2*k3 + k4) / 6
         
         return x_vals, y_vals
 
@@ -201,34 +201,66 @@ class Ecuation:
     def _configurar_grafica(self, titulo):
         """Configura los elementos comunes de las gráficas"""
         plt.title(titulo, fontsize=14)
-        plt.xlabel('x (tiempo)', fontsize=12)
-        plt.ylabel('y', fontsize=12)
+        plt.xlabel('t', fontsize=12)
+        plt.ylabel('Q', fontsize=12)
         plt.grid(True, alpha=0.3)
         plt.legend()
         plt.axhline(y=0, color='k', linestyle='-', alpha=0.3)
         plt.axvline(x=0, color='k', linestyle='-', alpha=0.3)
 
-# Ejemplos de uso
-if __name__ == "__main__":
+
+if __name__ == "__main__":        
+    # Parámetros del circuito RC
+    Eo = 110
+    C = 0.05
+    R = 50
     
-    #Ejemplo de la integral del proyecto
-    print("Q(t)= EoC(1-e^(-t/RC))")
-    Eo = 1
-    C = 1
-    R = 3
+    def solucion_analitica(t, Q):
+        return Eo * C * (1 - np.exp(-t / (R * C)))
     
-    def Adapted_Q(t, y):
-        return Eo * C * (1 - np.e ** (-1 * t / R * C))
+    def EDO(t, Q):
+        return (Eo - Q/C) / R  
+     
+    numerica = Ecuation(EDO)         
     
-    isoc = Ecuation(Adapted_Q)
-    isoc.graph_isoclines(Slopes=[0, 0.5, 1, 1.5])
-    #isoc.agregar_soluciones([0])
+    # Graficar solución analítica
+    print("Solución Analítica:")
+    numerica.graph_isoclines(xRange=(0, 10), yRange=(-1, 6), Slopes=[0, 0.5, 1, 1.5, 2])
+    numerica.agregar_soluciones([0], xRange=(0, 10))
     
-    print("Método de Euler:")
-    x1, y1 = isoc.graficar_euler(y0=0, x_range=(0, 5), h=0.5)
+    # Comparar con métodos numéricos
+    print("\nMétodo de Euler:")
+    x1, y1 = numerica.graficar_euler(y0=0, x_range=(0, 10), h=0.1)
     
     print("\nMétodo de Euler Mejorado:")
-    x2, y2 = isoc.graficar_euler_mejorado(y0=0, x_range=(0, 5), h=0.5)
+    x2, y2 = numerica.graficar_euler_mejorado(y0=0, x_range=(0, 10), h=0.1)
     
     print("\nMétodo de Runge-Kutta 4:")
-    x3, y3 = isoc.graficar_runge_kutta(y0=0, x_range=(0, 5), h=0.5)
+    x3, y3 = numerica.graficar_runge_kutta(y0=0, x_range=(0, 10), h=0.3)
+    
+    # COMPARACIÓN DIRECTA
+    plt.figure(figsize=(12, 8))
+    
+    # Solución analítica
+    t_analitico = np.linspace(0, 10, 100)
+    Q_analitico = solucion_analitica(t_analitico, 0)
+    plt.plot(t_analitico, Q_analitico, 'k-', linewidth=3, label='Solución Analítica')
+    
+    # Métodos numéricos
+    plt.plot(x1, y1, 'ro-', markersize=4, label=f'Euler (h=0.5)')
+    plt.plot(x2, y2, 'gs-', markersize=4, label=f'Euler Mejorado (h=0.5)')
+    plt.plot(x3, y3, 'b^-', markersize=4, label=f'Runge-Kutta 4 (h=0.5)')
+    
+    plt.title('Comparación: Solución Analítica vs Métodos Numéricos', fontsize=14)
+    plt.xlabel('t', fontsize=12)
+    plt.ylabel('Q', fontsize=12)
+    plt.grid(True, alpha=0.3)
+    plt.legend()
+    plt.show()
+    
+    # Mostrar valores finales para comparación
+    print(f"\nValor final (t=10):")
+    print(f"Analítico: {solucion_analitica(10, 0):.6f}")
+    print(f"Euler: {y1[-1]:.6f}")
+    print(f"Euler Mejorado: {y2[-1]:.6f}")
+    print(f"Runge-Kutta 4: {y3[-1]:.6f}")

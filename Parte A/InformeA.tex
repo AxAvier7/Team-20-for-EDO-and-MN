@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Solución del Circuito RC}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Parte A}
+
+\subsection*{a. Ecuación diferencial para la carga \( Q(t) \)}
+
+La ecuación del circuito es:
+\[ R \cdot I(t) + \frac{1}{C}Q = E(t) \]
+donde \( E(t) = E_0 \) (constante) y \( I(t) = Q'(t) \).
+
+Sustituyendo:
+\[ R \frac{dQ}{dt} + \frac{1}{C}Q = E_0 \]
+
+Esta es una ecuación diferencial de primer orden:
+\[ \frac{dQ}{dt} + \frac{1}{RC}Q = \frac{E_0}{R} \]
+
+El factor integrante es:
+\[ \mu(t) = e^{\int \frac{1}{RC} dt} = e^{\frac{t}{RC}} \]
+
+Multiplicando la ecuación por el factor integrante:
+\[ e^{\frac{t}{RC}} \frac{dQ}{dt} + \frac{1}{RC} e^{\frac{t}{RC}} Q = \frac{E_0}{R} e^{\frac{t}{RC}} \]
+
+Reconociendo la derivada del producto:
+\[ \frac{d}{dt} \left( Q e^{\frac{t}{RC}} \right) = \frac{E_0}{R} e^{\frac{t}{RC}} \]
+
+Integrando ambos lados:
+\[ Q e^{\frac{t}{RC}} = \frac{E_0}{R} \int e^{\frac{t}{RC}} dt = E_0 C e^{\frac{t}{RC}} + K \]
+
+Despejando \( Q(t) \):
+\[ Q(t) = E_0 C + K e^{-\frac{t}{RC}} \]
+
+Usando la condición inicial \( Q(0) = 0 \):
+\[ 0 = E_0 C + K \Rightarrow K = -E_0 C \]
+
+Por lo tanto:
+\[ Q(t) = E_0 C (1 - e^{-\frac{t}{RC}}) \]
+
+La corriente es:
+\[ I(t) = \frac{dQ}{dt} = \frac{E_0}{R} e^{-\frac{t}{RC}} \]
+
+\subsection*{b. Verificar que límite \( Q(t) = E_0 C \), límite \( I(t) = 0 \)}
+
+Para la carga:
+\[ \lim_{t \to \infty} Q(t) = \lim_{t \to \infty} E_0 C (1 - e^{-\frac{t}{RC}}) = E_0 C (1 - 0) = E_0 C \]
+
+Para la corriente:
+\[ \lim_{t \to \infty} I(t) = \lim_{t \to \infty} \frac{E_0}{R} e^{-\frac{t}{RC}} = \frac{E_0}{R} \cdot 0 = 0 \]
+
+\end{document}
