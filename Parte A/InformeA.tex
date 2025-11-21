@@ -3,6 +3,8 @@
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{booktabs} % Para tablas más profesionales
+\usepackage{caption} % Para mejor control de captions
 
 \title{Solución del Circuito RC}
 \author{}
@@ -57,5 +59,80 @@ Para la carga:
 
 Para la corriente:
 \[ \lim_{t \to \infty} I(t) = \lim_{t \to \infty} \frac{E_0}{R} e^{-\frac{t}{RC}} = \frac{E_0}{R} \cdot 0 = 0 \]
+
+\section*{Comparación de los métodos numéricos con la solución analítica}
+Para comparar la exactitud de los métodos utilizaremos un ejemplo con los parámetros de: \[E_0 = 110, R = 50, C = 0.05, h = 0.1\] Además usaremos como valor real t = 10 y valor aproximado t = 9,9
+
+% Usar [H] en lugar de [h] y forzar posición
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+\textbf{Tiempo (t)} & \textbf{Valor} \\
+\midrule
+9,9 & 5,399264 \\
+10 & 5,395153 \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{minipage}{0.5\textwidth}
+Conociendo ambos de estos resultados se concluye que el error relativo hacia atrás es de 0.000761
+\end{minipage}
+\caption{Solución analítica con el valor aproximado y el valor real}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+\textbf{Tiempo (t)} & \textbf{Valor} \\
+\midrule
+9,7 & 5,395125 \\
+9,8 & 5,399320 \\
+9,9 & 5,403347 \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{minipage}{0.5\textwidth}
+Dando un error relativo hacia adelante de un 0.001517 y un número de condición de 1.993442
+\end{minipage}
+\caption{Método de Euler}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+\textbf{Tiempo (t)} & \textbf{Valor} \\
+\midrule
+9,7 & 5,386299 \\
+9,8 & 5,390756 \\
+9,9 & 5,395039 \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{minipage}{0.5\textwidth}
+Dando un error relativo hacia adelante de un 0.000021 y un número de condición de 0.027595
+\end{minipage}
+\caption{Método Euler Mejorado}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+\textbf{Tiempo (t)} & \textbf{Valor} \\
+\midrule
+9,7 & 5,286954 \\
+9,8 & 5,293976 \\
+9,9 & 5,300767 \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{minipage}{0.5\textwidth}
+Dando un error relativo hacia adelante de un 0.017481 y un número de condición de 22.971090
+\end{minipage}
+\caption{Método de Runge - Kutta 4}
+\end{table}
 
 \end{document}

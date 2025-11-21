@@ -217,17 +217,17 @@ if __name__ == "__main__":
     # Graficar solución analítica
     print("Solución Analítica:")
     numerica.graph_isoclines(xRange=(0, 10), yRange=(-1, 6), Slopes=[0, 0.5, 1, 1.5, 2])
-    numerica.add_sol([0], xRange=(0, 10))
+    numerica.add_sol([0, 7], xRange=(0, 10))
     
     # Comparar con métodos numéricos
     print("\nMétodo de Euler:")
-    x1, y1 = numerica.graph_euler(y0=0, x_range=(0, 10), h=0.1)
+    x1, y1 = numerica.graph_euler(y0=0, x_range=(0, 9.9), h=0.1)
     
     print("\nMétodo de Euler Mejorado:")
-    x2, y2 = numerica.graph_improved_euler(y0=0, x_range=(0, 10), h=0.1)
+    x2, y2 = numerica.graph_improved_euler(y0=0, x_range=(0, 9.9), h=0.1)
     
     print("\nMétodo de Runge-Kutta 4:")
-    x3, y3 = numerica.graph_runge_kutta(y0=0, x_range=(0, 10), h=0.3)
+    x3, y3 = numerica.graph_runge_kutta(y0=0, x_range=(0, 9.9), h=0.1)
     
     # COMPARACIÓN DIRECTA
     plt.figure(figsize=(12, 8))
@@ -251,7 +251,7 @@ if __name__ == "__main__":
     
     # Mostrar valores finales para comparación para 
     print(f"\nValor final (t=10):")
-    print(f"Analítico: {solucion_analitica(10, 0):.6f}")
-    print(f"Euler: {y1[-1]:.6f}")
-    print(f"Euler Mejorado: {y2[-1]:.6f}")
-    print(f"Runge-Kutta 4: {y3[-1]:.6f}")
+    print(f"Analítico: {solucion_analitica(9.9, 0):.6f}")
+    print(f"Euler: {y1[-1]:.6f}, {y1[-2]:.6f}, {y1[-3]:.6f}")
+    print(f"Euler Mejorado: {y2[-1]:.6f}, {y2[-2]:.6f}, {y2[-3]:.6f}")
+    print(f"Runge-Kutta 4: {y3[-1]:.6f}, {y3[-2]:.6f}, {y3[-3]:.6f}")
