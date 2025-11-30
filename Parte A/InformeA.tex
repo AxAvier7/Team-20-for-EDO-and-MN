@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{booktabs} % Para tablas más profesionales
 \usepackage{caption} % Para mejor control de captions
+\usepackage{float} % <-- AÑADE ESTE PAQUETE
 
 \title{Solución del Circuito RC}
 \author{}
@@ -63,7 +64,7 @@ Para la corriente:
 \section*{Comparación de los métodos numéricos con la solución analítica}
 Para comparar la exactitud de los métodos utilizaremos un ejemplo con los parámetros de: \[E_0 = 110, R = 50, C = 0.05, h = 0.1\] Además usaremos como valor real t = 10 y valor aproximado t = 9,9
 
-% Usar [H] en lugar de [h] y forzar posición
+% Cambia todas las tablas a [H]
 \begin{table}[H]
 \centering
 \begin{tabular}{cc}
@@ -94,7 +95,7 @@ Conociendo ambos de estos resultados se concluye que el error relativo hacia atr
 \end{tabular}
 \quad
 \begin{minipage}{0.5\textwidth}
-Dando un error relativo hacia adelante de un 0.001517 y un número de condición de 1.993442
+Dando un error relativo hacia adelante de un 0.001517 y un número de condición de 1.993429
 \end{minipage}
 \caption{Método de Euler}
 \end{table}
@@ -123,16 +124,46 @@ Dando un error relativo hacia adelante de un 0.000021 y un número de condición
 \toprule
 \textbf{Tiempo (t)} & \textbf{Valor} \\
 \midrule
-9,7 & 5,286954 \\
-9,8 & 5,293976 \\
-9,9 & 5,300767 \\
+9,7 & 5,386420 \\
+9,8 & 5,390874 \\
+9,9 & 5,395153 \\
 \bottomrule
 \end{tabular}
 \quad
 \begin{minipage}{0.5\textwidth}
-Dando un error relativo hacia adelante de un 0.017481 y un número de condición de 22.971090
+Dando un error relativo hacia adelante de un 0.000761 y un número de condición de 1
 \end{minipage}
 \caption{Método de Runge - Kutta 4}
+\end{table}
+
+\noindent
+Con el objetivo de calcular el orden de convergencia de dichos métodos haremos 10 iteraciones de ellos por cada uno de los siguientes valores de h = { 0.5; 0.2; 0.1; 0.05; 0.02; 0.01 } para asi obtener el orden entre cada uno de los tamaños de pasos usando la siguiente fórmula:
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{Fórmula del orden de convergencia:} 
+\[
+p = \frac{\log\left(\frac{\text{Error}_{h_1}}{\text{Error}_{h_2}}\right)}{\log\left(\frac{h_1}{h_2}\right)}
+\]
+
+\vspace{0.5cm}
+
+% CAMBIA ESTA TABLA TAMBIÉN A [H]
+\begin{table}[H]
+\centering
+\caption{Órdenes de convergencia de los métodos numéricos}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{Método} & \textbf{0.5→0.2} & \textbf{0.2→0.1} & \textbf{0.1→0.05} & \textbf{0.05→0.02} & \textbf{0.02→0.01} & \textbf{Promedio} \\
+\hline
+Euler & 1.0595 & 1.0249 & 1.0122 & 1.0055 & 1.0024 & 1.0209 \\
+\hline
+Euler Mejorado & 2.1025 & 2.0429 & 2.0218 & 2.0099 & 2.0043 & 2.0363 \\
+\hline
+Runge-Kutta 4 & 4.1104 & 4.0470 & 4.0241 & 4.0109 & 4.0044 & 4.0394 \\
+\hline
+\end{tabular}
 \end{table}
 
 \end{document}

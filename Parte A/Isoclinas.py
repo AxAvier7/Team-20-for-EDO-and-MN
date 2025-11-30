@@ -156,18 +156,23 @@ class Ecuation:
         return x_vals, y_vals
 
     def runge_kutta_4(self, y0, x_range, h=0.1):
-        x_vals = np.arange(x_range[0], x_range[1] + h, h)
-        y_vals = np.zeros(len(x_vals))
+        n_points = int((x_range[1] - x_range[0]) / h) + 1
+        x_vals = np.linspace(x_range[0], x_range[1], n_points)
+        y_vals = np.zeros(n_points)
         y_vals[0] = y0
         
         for i in range(1, len(x_vals)):
-            k1 = self.ecuacion(x_vals[i-1], y_vals[i-1])
-            k2 = self.ecuacion(x_vals[i-1] + h/2, y_vals[i-1] + k1/2)
-            k3 = self.ecuacion(x_vals[i-1] + h/2, y_vals[i-1] + k2/2)
-            k4 = self.ecuacion(x_vals[i-1] + h, y_vals[i-1] + k3)
+            h_actual = x_vals[i] - x_vals[i-1]
+            x_actual = x_vals[i-1]
+            y_actual = y_vals[i-1]
             
-            y_vals[i] = y_vals[i-1] + h * (k1 + 2*k2 + 2*k3 + k4) / 6
-        
+            k1 = h_actual * self.ecuacion(x_actual, y_actual)
+            k2 = h_actual * self.ecuacion(x_actual + h_actual/2, y_actual + k1/2)
+            k3 = h_actual * self.ecuacion(x_actual + h_actual/2, y_actual + k2/2)  
+            k4 = h_actual * self.ecuacion(x_actual + h_actual, y_actual + k3)
+            
+            y_vals[i] = y_actual + (k1 + 2*k2 + 2*k3 + k4) / 6
+    
         return x_vals, y_vals
 
     # FUNCIONES AUXILIARES PRIVADAS
@@ -198,60 +203,116 @@ class Ecuation:
         plt.legend()
         plt.axhline(y=0, color='k', linestyle='-', alpha=0.3)
         plt.axvline(x=0, color='k', linestyle='-', alpha=0.3)
+        
+def calcular_orden_convergencia(metodo_func, y0, x_range, h_values, solucion_analitica):
+    """
+    Calcula el orden de convergencia de un método numérico
+    """
+    errores = []
+    
+    for h in h_values:
+        # Calcular solución numérica
+        x_vals, y_vals = metodo_func(y0, x_range, h)
+        
+        # Calcular solución analítica en los mismos puntos
+        y_analitica = solucion_analitica(x_vals, 0)
+        
+        # Calcular error máximo
+        error = np.max(np.abs(y_vals - y_analitica))
+        errores.append(error)
+    
+    # Calcular órdenes de convergencia
+    ordenes = []
+    for i in range(1, len(errores)):
+        if errores[i] > 0 and errores[i-1] > 0:
+            orden = np.log(errores[i-1] / errores[i]) / np.log(h_values[i-1] / h_values[i])
+            ordenes.append(orden)
+    
+    return h_values, errores, ordenes
 
-
-if __name__ == "__main__":        
+      
     # Parámetros del circuito RC
-    Eo = 110
-    C = 0.05
-    R = 50
+Eo = 110
+C = 0.05
+R = 50
+
+p = 9.9
     
-    def solucion_analitica(t, Q):
-        return Eo * C * (1 - np.exp(-t / (R * C)))
+def solucion_analitica(t, Q):
+    return Eo * C * (1 - np.exp(-t / (R * C)))
     
-    def EDO(t, Q):
-        return (Eo - Q/C) / R  
+def EDO(t, Q):
+    return (Eo - Q/C) / R  
      
-    numerica = Ecuation(EDO)         
+numerica = Ecuation(EDO)         
     
     # Graficar solución analítica
-    print("Solución Analítica:")
-    numerica.graph_isoclines(xRange=(0, 10), yRange=(-1, 6), Slopes=[0, 0.5, 1, 1.5, 2])
-    numerica.add_sol([0, 7], xRange=(0, 10))
+print("Solución Analítica:")
+numerica.graph_isoclines(xRange=(0, 10), yRange=(-1, 6), Slopes=[0, 0.5, 1, 1.5, 2])
+numerica.add_sol([0], xRange=(0, 10))
     
     # Comparar con métodos numéricos
-    print("\nMétodo de Euler:")
-    x1, y1 = numerica.graph_euler(y0=0, x_range=(0, 9.9), h=0.1)
+x1, y1 = numerica.euler_method(y0=0, x_range=(0, p), h=0.1)
     
-    print("\nMétodo de Euler Mejorado:")
-    x2, y2 = numerica.graph_improved_euler(y0=0, x_range=(0, 9.9), h=0.1)
+x2, y2 = numerica.improved_euler(y0=0, x_range=(0, p), h=0.1)
     
-    print("\nMétodo de Runge-Kutta 4:")
-    x3, y3 = numerica.graph_runge_kutta(y0=0, x_range=(0, 9.9), h=0.1)
+x3, y3 = numerica.runge_kutta_4(y0=0, x_range=(0, p), h=0.1)
     
     # COMPARACIÓN DIRECTA
-    plt.figure(figsize=(12, 8))
+plt.figure(figsize=(12, 8))
     
     # Solución analítica
-    t_analitico = np.linspace(0, 10, 100)
-    Q_analitico = solucion_analitica(t_analitico, 0)
-    plt.plot(t_analitico, Q_analitico, 'k-', linewidth=3, label='Analitical Solution')
+t_analitico = np.linspace(0, 10, 100)
+Q_analitico = solucion_analitica(t_analitico, 0)
+plt.plot(t_analitico, Q_analitico, 'k-', linewidth=3, label='Analitical Solution')
     
     # Métodos numéricos
-    plt.plot(x1, y1, 'ro-', markersize=4, label=f'Euler (h=0.5)')
-    plt.plot(x2, y2, 'gs-', markersize=4, label=f'Improved Euler (h=0.5)')
-    plt.plot(x3, y3, 'b^-', markersize=4, label=f'Runge-Kutta 4 (h=0.5)')
+plt.plot(x1, y1, 'ro-', markersize=4, label=f'Euler (h=0.5)')
+plt.plot(x2, y2, 'gs-', markersize=4, label=f'Improved Euler (h=0.5)')
+plt.plot(x3, y3, 'b^-', markersize=4, label=f'Runge-Kutta 4 (h=0.5)')
     
-    plt.title('Numerical Methods vs Analitical Solution Comparison', fontsize=14)
-    plt.xlabel('t', fontsize=12)
-    plt.ylabel('Q', fontsize=12)
-    plt.grid(True, alpha=0.3)
-    plt.legend()
-    plt.show()
+plt.title('Numerical Methods vs Analitical Solution Comparison', fontsize=14)
+plt.xlabel('t', fontsize=12)
+plt.ylabel('Q', fontsize=12)
+plt.grid(True, alpha=0.3)
+plt.legend()
+plt.show()
     
     # Mostrar valores finales para comparación para 
-    print(f"\nValor final (t=10):")
-    print(f"Analítico: {solucion_analitica(9.9, 0):.6f}")
-    print(f"Euler: {y1[-1]:.6f}, {y1[-2]:.6f}, {y1[-3]:.6f}")
-    print(f"Euler Mejorado: {y2[-1]:.6f}, {y2[-2]:.6f}, {y2[-3]:.6f}")
-    print(f"Runge-Kutta 4: {y3[-1]:.6f}, {y3[-2]:.6f}, {y3[-3]:.6f}")
+print(f"\nValor final (t=10):")
+print(f"Analítico: {solucion_analitica(p, 0):.6f}")
+print(f"Euler: {y1[-1]:.6f}, {y1[-2]:.6f}, {y1[-3]:.6f}")
+print(f"Euler Mejorado: {y2[-1]:.6f}, {y2[-2]:.6f}, {y2[-3]:.6f}")
+print(f"Runge-Kutta 4: {y3[-1]:.6f}, {y3[-2]:.6f}, {y3[-3]:.6f}")\
+    
+    
+ # Diferentes tamaños de paso para el análisis
+h_values = [0.5, 0.2, 0.1, 0.05, 0.02, 0.01]
+x_range = (0, 10)
+y0 = 0
+    
+    
+# Calcular órdenes de convergencia para cada método
+print("\n1. MÉTODO DE EULER:")
+h_euler, errores_euler, ordenes_euler = calcular_orden_convergencia(
+    numerica.euler_method, y0, x_range, h_values, solucion_analitica
+    )
+print(f"Errores: {[f'{e:.6f}' for e in errores_euler]}")
+print(f"Órdenes de convergencia: {[f'{o:.4f}' for o in ordenes_euler]}")
+print(f"Orden promedio: {np.mean(ordenes_euler):.4f}")
+    
+print("\n2. MÉTODO DE EULER MEJORADO:")
+h_mejorado, errores_mejorado, ordenes_mejorado = calcular_orden_convergencia(
+    numerica.improved_euler, y0, x_range, h_values, solucion_analitica
+    )
+print(f"Errores: {[f'{e:.6f}' for e in errores_mejorado]}")
+print(f"Órdenes de convergencia: {[f'{o:.4f}' for o in ordenes_mejorado]}")
+print(f"Orden promedio: {np.mean(ordenes_mejorado):.4f}")
+    
+print("\n3. MÉTODO DE RUNGE-KUTTA 4:")
+h_rk4, errores_rk4, ordenes_rk4 = calcular_orden_convergencia(
+    numerica.runge_kutta_4, y0, x_range, h_values, solucion_analitica
+    )
+print(f"Errores: {[f'{e:.6f}' for e in errores_rk4]}")
+print(f"Órdenes de convergencia: {[f'{o:.4f}' for o in ordenes_rk4]}")
+print(f"Orden promedio: {np.mean(ordenes_rk4):.4f}")
