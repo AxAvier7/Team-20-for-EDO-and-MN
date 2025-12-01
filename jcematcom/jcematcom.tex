@@ -30,6 +30,8 @@
 \usepackage[pdftex]{hyperref}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
 %-----------------------------------------------------------------------------------
 % Configuración
 %-----------------------------------------------------------------------------------
@@ -48,31 +50,28 @@
 %-----------------------------------------------------------------------------------
 % Título
 %-----------------------------------------------------------------------------------
-\title{Documento de Ejemplo para la Jornada Científica Estudiantil}
+\title{Proyecto Conjunto de Ecuaciones Diferenciales Ordinarias y Matemática Numérica, Equipo No. 20}
 
 %-----------------------------------------------------------------------------------
 % Autores
 %-----------------------------------------------------------------------------------
 \author{\\
-\name Autor Uno \email \href{mailto:a.uno@lab.matcom.uh.cu}{a.uno@lab.matcom.uh.cu}
-	\\ \addr Grupo B612 \AND
-\name Autor Dos \email \href{mailto:a.dos@lab.matcom.uh.cu}{a.dos@lab.matcom.uh.cu}
-  \\ \addr Grupo B612}
-
-%-----------------------------------------------------------------------------------
-% Tutores
-%-----------------------------------------------------------------------------------
-\tutors{\\
-Dr. Tutor Uno, \emph{Centro} \\
-Lic. Tutor Dos, \emph{Centro}}
+\name Brioso Jurado, Adrián Xavier \email \href{adrian.xbrioso@estudiantes.matcom.uh.cu}{adrian.xbrioso@estudiantes.matcom.uh.cu}
+	\\ \addr Grupo B211 \AND
+\name García Ruiz, Alejandro \email \href{alejandro.garcia@estudiantes.matcom.uh.cu}{alejandro.garcia@estudiantes.matcom.uh.cu}
+  \\ \addr Grupo B212 \AND
+\name López Castro, Alejandro \email \href{alejandro.lopez@estudiantes.matcom.uh.cu}{alejandro.lopez@estudiantes.matcom.uh.cu}
+  \\ \addr Grupo B212}
 
 %-----------------------------------------------------------------------------------
 % Headings
 %-----------------------------------------------------------------------------------
-\jcematcomheading{\the\year}{1-\pageref{end}}{A. Uno, A. Dos}
+\jcematcomheading{\the\year}{1-\pageref{end}}{Brioso, Adrián Xavier; García, Alejandro; López, Alejandro}
 
 %-----------------------------------------------------------------------------------
-\ShortHeadings{Ejemplo JCE}{Autores}
+\ShortHeadings{Proyecto Conjunto EDO \& MN, Equipo No. 20}{Autores}
+% Si no hay tutores, definir macro vacía para evitar error en \@maketitle
+	\tutors{Ania Mesa, Damián Valdés, Jackson Vera, Amanda Noris, Juan Miguel Pérez}
 %===================================================================================
 
 
@@ -100,8 +99,19 @@ Lic. Tutor Dos, \emph{Centro}}
 %-----------------------------------------------------------------------------------
 \begin{abstract}
 
-	El resumen en español debe constar de $100$ a $200$ palabras y presentar de forma
-	clara y concisa el contenido fundamental del artículo.
+	En este proyecto se aborda el tema de cómo las ecuaciones diferenciales ordinarias describen el comportamiento dinámico de distintos tipos de circuitos eléctricos. Se inicia presentando el circuito RC, conformado por un resistor y un capacitor, donde la ecuación diferencial
+	\[
+	R\,\frac{dQ}{dt} + \frac{1}{C}Q(t) = E_0
+	\]
+	modela la carga del capacitor tras cerrar el interruptor. Se determina la función de carga \( Q(t) \), la corriente \( I(t) \) y el comportamiento asintótico del sistema, realizando su análisis mediante un campo de isoclinas.
+
+	Más adelante, en la parte de bifurcación, se introduce un modelo no lineal para la corriente \( z(t) \) con la EDO
+	\[
+	\dot z = \mu - z^{2},
+	\]
+	que permite estudiar cómo el voltaje \( \mu \) puede generar o eliminar estados estacionarios, a la vez que se interpreta la respuesta del circuito ante distintos regímenes de operación.
+
+	Por último, se analiza un circuito RLC, donde la interacción entre resistencia, inductor y capacitor lleva a un sistema lineal de dos ecuaciones que describe la evolución de la carga y la corriente. Se estudia el punto crítico del sistema, su estabilidad y se interpreta el plano de fase como representación de la descarga oscilatoria del capacitor dentro del circuito.
 
 \end{abstract}
 
@@ -112,8 +122,19 @@ Lic. Tutor Dos, \emph{Centro}}
 
 \begin{enabstract}
 
-  The English abstract must have have $100$ to $200$ words, and present 
-  the essentials of the article content in a clear and concise form.
+	This project addresses how ordinary differential equations describe the dynamic behavior of different types of electrical circuits. It begins by presenting the RC circuit, composed of a resistor and a capacitor, where the differential equation
+	\[
+	R\,\frac{dQ}{dt} + \frac{1}{C}Q(t) = E_0
+	\]
+	models the charge of the capacitor after the switch is closed. The charge function \( Q(t) \), the current \( I(t) \), and the asymptotic behavior of the system are determined, and their analysis is carried out using an isocline field.
+
+	Later, in the bifurcation section, a nonlinear model for the current \( z(t) \) is introduced, governed by the ODE
+	\[
+	\dot z = \mu - z^{2},
+	\]
+	which makes it possible to study how the voltage \( \mu \) can generate or eliminate steady states, while also interpreting the circuit's response under different operating regimes.
+
+	Finally, an RLC circuit is analyzed, where the interaction between resistance, inductor, and capacitor leads to a linear system of two equations that describes the evolution of the charge and the current. The critical point of the system and its stability are examined, and the phase plane is interpreted as a representation of the oscillatory discharge of the capacitor within the circuit.
 
 \end{enabstract}
 
@@ -121,16 +142,16 @@ Lic. Tutor Dos, \emph{Centro}}
 % Palabras clave
 %-----------------------------------------------------------------------------------
 \begin{keywords}
-	Separadas,
-	Por,
-	Comas.
+	EDO,
+	Matemática Numérica,
+	Circuito RC.
 \end{keywords}
 
 %-----------------------------------------------------------------------------------
 % Temas
 %-----------------------------------------------------------------------------------
 \begin{topics}
-	Tema, Subtema.
+	Ecuaciones Diferenciales Ordinarias y Matemática Numérica aplicada a un circuito eléctrico.
 \end{topics}
 
 
@@ -149,71 +170,480 @@ Lic. Tutor Dos, \emph{Centro}}
 %-----------------------------------------------------------------------------------
 \section{Resumen Extendido}\label{sec:intro}
 %-----------------------------------------------------------------------------------
-  Este documento proporciona una plantilla para confeccionar el artículo de un 
-  trabajo a presentar en la Jornada Científica Estudiantil en el Evento Académico. El artículo no excederá 
-  de 2 páginas y SOLO contará con esta sección. Además no debe sobrepasar las 500 palabras. En esta sección debe incluir una presentación del dominio de su 
-  problema, los objetivos y motivaciones fundamentales de su investigación así como 
-  un resumen del estado del arte al respecto. Puede aprovechar para tratar las propuestas y métodos de solución empleados, así como los resultados obtenidos, pero todo a modo de resumen.
-  
-%-----------------------------------------------------------------------------------
-Para producir listas enumeradas, utilice el siguiente estilo:
-\begin{enumerate}
-	\item Primer Elemento
-	\item Segundo Elemento
-	%
-	\begin {enumerate}
-	\item {Segundo Elemento - Subítem Uno}
-	\item {Segundo Elemento - Subítem Dos}
-	\end {enumerate}
-	%
-\end{enumerate}
+\subsection{Modelado Matemático del Circuito RLC}
+
+Un circuito RLC en serie consta de tres componentes fundamentales: resistencia ($R$), inductancia ($L$) y capacitancia ($C$), conectados en serie con una fuente de voltaje $E(t)$. Las variables clave son la carga $Q(t)$ en el capacitor y la corriente $I(t)$, relacionadas por:
+
+\[
+\frac{dQ}{dt} = I(t)
+\]
+
+Aplicando la ley de Kirchhoff, se obtiene la ecuación del circuito:
+
+\[
+L\frac{dI}{dt} + RI + \frac{1}{C}Q = E(t)
+\]
+
+Derivando y sustituyendo, se llega a la EDO de segundo orden para la corriente:
+
+\[
+LI'' + RI' + \frac{1}{C}I = E'(t)
+\]
+
+\subsection{Analogía Mecánica-Eléctrica}
+
+Existe una correspondencia directa entre el circuito RLC y los sistemas masa-resorte-amortiguador:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Sistema Mecánico} & \textbf{Sistema Eléctrico} \\
+\hline
+Masa $m$ & Inductancia $L$ \\
+Amortiguamiento $c$ & Resistencia $R$ \\
+Constante del resorte $k$ & Recíproco de capacitancia $1/C$ \\
+Posición $x$ & Carga $Q$ o corriente $I$ \\
+Fuerza $F(t)$ & Voltaje $E(t)$ o $E'(t)$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Esta analogía permite trasladar resultados entre dominios físicos diferentes.
+
+\subsection{Solución para Corriente Alterna}
+
+Para un voltaje de entrada $E(t) = E_0 \sin \omega t$, la solución completa es:
+
+\[
+I(t) = I_{tr}(t) + I_{sp}(t)
+\]
+
+donde $I_{tr}(t)$ es la corriente transitoria (decae exponencialmente) e $I_{sp}(t)$ es la corriente estacionaria periódica.
+
+\subsection{Impedancia y Fase}
+
+La \textbf{impedancia} del circuito se define como:
+
+\[
+Z = \sqrt{R^2 + (\omega L - \frac{1}{\omega C})^2}
+\]
+
+La corriente estacionaria tiene amplitud $I_0 = E_0/Z$ y presenta un \textbf{retraso de fase} $\delta$:
+
+\[
+I_{sp}(t) = \frac{E_0}{Z} \sin(\omega t - \delta)
+\]
+\[
+\delta = \tan^{-1} \frac{\omega L - 1/(\omega C)}{R}
+\]
+
+El \textbf{tiempo de retraso} es $\delta/\omega$ segundos.  
 
 %-----------------------------------------------------------------------------------
-Para producir descripciones, use el siguiente estilo:
-
-%-----------------------------------------------------------------------------------
-\begin{description}
-	\item [Primer Elemento] con su respectiva descripción.
-	\item [Segundo Elemento] también con su respectiva descripción.
-\end{description}
-
-%-----------------------------------------------------------------------------------
-Para producir cuerpos flotantes (figuras o tablas), asegúrese de numerar
-y etiquetar correctamente cada figura. Las referencias a las figuras deben
-estar correctamente etiquetadas. Por ejemplo, véase la Fig. \ref{fig:ex}\ldots
-
-\begin{figure}[h!]%
-	\begin{center}
-		\begin{tabular}{|c|c|c|} \hline
-			& Método 1 	& Método 2 	\\ \hline
-			A 			&  			&  			\\ \hline
-			B			& 			& 			\\ \hline
-			C 			& 			&  			\\ \hline
-		\end{tabular}
-		\caption{Figura de ejemplo. Recuerde especificar el origen de los datos que se muestran. \label{fig:ex}}
-	\end{center}
-\end{figure}
 %-----------------------------------------------------------------------------------
 
-Para producir código fuente, envuélvalo en una figura flotante y
-etiquételo correctamente. Por ejemplo, en la Fig. \ref{fig:code}
-se muestra un código bastante conocido\ldots
+\section{Parte A: Circuito RC e isoclinas}
+\subsection*{a. Ecuación diferencial para la carga \( Q(t) \)}
 
-% Configuración de Listings
-\lstset{keywordstyle=\color{blue}, basicstyle=\small}
+La ecuación del circuito es:
+\[ R \cdot I(t) + \frac{1}{C}Q = E(t) \]
+donde \( E(t) = E_0 \) (constante) y \( I(t) = Q'(t) \).
 
-\begin{figure}[h!]%
-	\begin{lstlisting}[language=c]%
+Sustituyendo:
+\[ R \frac{dQ}{dt} + \frac{1}{C}Q = E_0 \]
+
+Esta es una ecuación diferencial de primer orden:
+\[ \frac{dQ}{dt} + \frac{1}{RC}Q = \frac{E_0}{R} \]
+
+El factor integrante es:
+\[ \mu(t) = e^{\int \frac{1}{RC} dt} = e^{\frac{t}{RC}} \]
+
+Multiplicando la ecuación por el factor integrante:
+\[ e^{\frac{t}{RC}} \frac{dQ}{dt} + \frac{1}{RC} e^{\frac{t}{RC}} Q = \frac{E_0}{R} e^{\frac{t}{RC}} \]
+
+Reconociendo la derivada del producto:
+\[ \frac{d}{dt} \left( Q e^{\frac{t}{RC}} \right) = \frac{E_0}{R} e^{\frac{t}{RC}} \]
+
+Integrando ambos lados:
+\[ Q e^{\frac{t}{RC}} = \frac{E_0}{R} \int e^{\frac{t}{RC}} dt = E_0 C e^{\frac{t}{RC}} + K \]
+
+Despejando \( Q(t) \):
+\[ Q(t) = E_0 C + K e^{-\frac{t}{RC}} \]
+
+Usando la condición inicial \( Q(0) = 0 \):
+\[ 0 = E_0 C + K \Rightarrow K = -E_0 C \]
+
+Por lo tanto:
+\[ Q(t) = E_0 C (1 - e^{-\frac{t}{RC}}) \]
+
+La corriente es:
+\[ I(t) = \frac{dQ}{dt} = \frac{E_0}{R} e^{-\frac{t}{RC}} \]
+
+\subsection*{b. Verificar que límite \( Q(t) = E_0 C \), límite \( I(t) = 0 \)}
+
+Para la carga:
+\[ \lim_{t \to \infty} Q(t) = \lim_{t \to \infty} E_0 C (1 - e^{-\frac{t}{RC}}) = E_0 C (1 - 0) = E_0 C \]
+
+Para la corriente:
+\[ \lim_{t \to \infty} I(t) = \lim_{t \to \infty} \frac{E_0}{R} e^{-\frac{t}{RC}} = \frac{E_0}{R} \cdot 0 = 0 \]
+
+\section*{Comparación de los métodos numéricos con la solución analítica}
+Para comparar la exactitud de los métodos utilizaremos un ejemplo con los parámetros de: \[E_0 = 110, R = 50, C = 0.05, h = 0.1\] Además usaremos como valor real t = 10 y valor aproximado t = 9,9
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+\textbf{Tiempo (t)} & \textbf{Valor} \\
+\midrule
+9,9 & 5,399264 \\
+10 & 5,395153 \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{minipage}{0.5\textwidth}
+Conociendo ambos de estos resultados se concluye que el error relativo hacia atrás es de 0.000761
+\end{minipage}
+\caption{Solución analítica con el valor aproximado y el valor real}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+\textbf{Tiempo (t)} & \textbf{Valor} \\
+\midrule
+9,7 & 5,395125 \\
+9,8 & 5,399320 \\
+9,9 & 5,403347 \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{minipage}{0.5\textwidth}
+Dando un error relativo hacia adelante de un 0.001517 y un número de condición de 1.993429
+\end{minipage}
+\caption{Método de Euler}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+\textbf{Tiempo (t)} & \textbf{Valor} \\
+\midrule
+9,7 & 5,386299 \\
+9,8 & 5,390756 \\
+9,9 & 5,395039 \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{minipage}{0.5\textwidth}
+Dando un error relativo hacia adelante de un 0.000021 y un número de condición de 0.027595
+\end{minipage}
+\caption{Método Euler Mejorado}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+\textbf{Tiempo (t)} & \textbf{Valor} \\
+\midrule
+9,7 & 5,386420 \\
+9,8 & 5,390874 \\
+9,9 & 5,395153 \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{minipage}{0.5\textwidth}
+Dando un error relativo hacia adelante de un 0.000761 y un número de condición de 1
+\end{minipage}
+\caption{Método de Runge - Kutta 4}
+\end{table}
+
+\noindent
+Con el objetivo de calcular el orden de convergencia de dichos métodos haremos 10 iteraciones de ellos por cada uno de los siguientes valores de h = { 0.5; 0.2; 0.1; 0.05; 0.02; 0.01 } para asi obtener el orden entre cada uno de los tamaños de pasos usando la siguiente fórmula:
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{Fórmula del orden de convergencia:} 
+\[
+p = \frac{\log\left(\frac{\text{Error}_{h_1}}{\text{Error}_{h_2}}\right)}{\log\left(\frac{h_1}{h_2}\right)}
+\]
+
+\vspace{0.5cm}
+
+\begin{table}[H]
+\centering
+\caption{Órdenes de convergencia de los métodos numéricos}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{Método} & \textbf{0.5→0.2} & \textbf{0.2→0.1} & \textbf{0.1→0.05} & \textbf{0.05→0.02} & \textbf{0.02→0.01} & \textbf{Promedio} \\
+\hline
+Euler & 1.0595 & 1.0249 & 1.0122 & 1.0055 & 1.0024 & 1.0209 \\
+\hline
+Euler Mejorado & 2.1025 & 2.0429 & 2.0218 & 2.0099 & 2.0043 & 2.0363 \\
+\hline
+Runge-Kutta 4 & 4.1104 & 4.0470 & 4.0241 & 4.0109 & 4.0044 & 4.0394 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{c. Campo de Isoclinas}
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+
+\section{Parte B: Bifurcación}
+
+En esta parte se analiza el comportamiento no lineal de un circuito eléctrico que contiene un diodo, elemento cuya relación corriente–voltaje no es lineal. Este tipo de circuitos puede presentar \textbf{bifurcaciones}, es decir, cambios cualitativos en su dinámica cuando se modifica el voltaje aplicado.
+
+El modelo simplificado que representa este fenómeno se describe mediante la ecuación diferencial:
+
+\[
+\frac{dz}{dt} = \mu - z^2,
+\]
+
+donde $z(t)$ representa la corriente y $\mu$ es un parámetro de control asociado al voltaje aplicado. Este modelo muestra cómo el comportamiento del circuito cambia según el valor de $\mu$.
+
+\subsection*{a. Determinación de los puntos de equilibrio}
+
+Los puntos de equilibrio se obtienen imponiendo la condición de equilibrio:
+
+\[
+\frac{dz}{dt} = 0.
+\]
+
+De la ecuación se deduce:
+\[
+\mu - z^2 = 0,
+\]
+
+y por tanto:
+\[
+z = \pm \sqrt{\mu}.
+\]
+
+Esto significa que:
+\begin{itemize}
+	\item Si $\mu > 0$, existen dos equilibrios reales: $z_1 = +\sqrt{\mu}$ y $z_2 = -\sqrt{\mu}$.
+	\item Si $\mu = 0$, ambos colapsan en un único punto $z = 0$.
+	\item Si $\mu < 0$, no existen equilibrios reales.
+\end{itemize}
+
+\subsection*{b. Estabilidad de los equilibrios}
+
+Para estudiar la estabilidad se linealiza la ecuación alrededor de un equilibrio $z^*$:
+
+\[
+\frac{d(\delta z)}{dt} = \left.\frac{d}{dz}(\mu - z^2)\right|_{z = z^*} \delta z.
+\]
+
+Como 
+\[
+\frac{d}{dz}(\mu - z^2) = -2z,
+\]
+entonces la ecuación linealizada queda:
+\[
+\frac{d(\delta z)}{dt} = -2z^* \, \delta z.
+\]
+
+De aquí:
+\begin{itemize}
+	\item Si $z^* = +\sqrt{\mu}$, el coeficiente $-2\sqrt{\mu} < 0$ $\Rightarrow$ equilibrio \textbf{estable}.
+	\item Si $z^* = -\sqrt{\mu}$, el coeficiente $+2\sqrt{\mu} > 0$ $\Rightarrow$ equilibrio \textbf{inestable}.
+\end{itemize}
+
+Por lo tanto, cuando $\mu > 0$, el sistema posee un equilibrio estable y otro inestable.
+
+\subsection*{c. Diagrama de bifurcación}
+
+El diagrama se representa en el plano $(\mu, z)$:
+
+\begin{itemize}
+	\item Para $\mu < 0$, no hay equilibrios reales.
+	\item En $\mu = 0$, ambos equilibrios coinciden en el origen.
+	\item Para $\mu > 0$, aparecen dos ramas: $z = +\sqrt{\mu}$ (estable) y $z = -\sqrt{\mu}$ (inestable).
+\end{itemize}
+
+Esto corresponde a una \textbf{bifurcación tipo silla–nodo}, donde dos equilibrios surgen a partir de un valor crítico del parámetro.
+
+\begin{center}
+	\includegraphics[width=0.50\textwidth]{bifurcacion.png}
+\end{center}
+
+	\textbf{Figura:} Diagrama de bifurcación del modelo $\dot{z} = \mu - z^2$. La rama superior es estable y la inferior inestable.
+
+\subsection*{d. Interpretación física}
+
+En el contexto del circuito:
+\begin{itemize}
+	\item $\mu$ representa el \textbf{voltaje aplicado}.
+	\item $z(t)$ representa la \textbf{corriente} que atraviesa el diodo.
+\end{itemize}
+
+Cuando $\mu < 0$, el voltaje no alcanza el umbral necesario y el sistema no tiene un estado estacionario real: el diodo permanece “apagado”, sin conducción.  
+Cuando $\mu > 0$, aparecen dos posibles estados estacionarios:
+\begin{itemize}
+	\item Uno estable, que corresponde a la corriente positiva (conducción normal del diodo).
+	\item Otro inestable, que representaría una corriente negativa físicamente irreal.
+\end{itemize}
+
+Así, el cambio de signo de $\mu$ simboliza el paso de un régimen sin corriente a un régimen estable de conducción. Este comportamiento es análogo a la activación de un diodo real al superar su voltaje umbral.
+
+Para concluir, el modelo $\dot{z} = \mu - z^2$ muestra cómo un circuito eléctrico no lineal puede cambiar su comportamiento de forma cualitativa al variar el voltaje aplicado.  
+Cuando $\mu$ cruza el valor crítico $0$, el sistema pasa de no tener equilibrios (sin conducción) a tener dos (uno estable y otro inestable), lo que describe perfectamente la aparición de un estado de conducción estable en el circuito con diodo.
+
+Este análisis evidencia cómo las bifurcaciones permiten comprender la transición entre diferentes regímenes dinámicos en sistemas eléctricos no lineales.
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+
+\section{Parte C: Plano de fase y estabilidad}
+
+\subsection*{Circuito RLC con parámetros numéricos}
+
+El sistema de ecuaciones diferenciales ordinarias dado es el siguiente:
+\begin{equation*}
+\begin{cases}
+\dfrac{dQ}{dt} = I, \\
+\dfrac{dI}{dt} = -2I - 5Q,
+\end{cases}
+\end{equation*}
+
+\subsection*{a. Calcular punto crítico y clasificar sistema según tipo y estabilidad}
+\noindent\textbf{Clasificación del sistema según:}
+\begin{itemize}
+	\item \textbf{Tipo:} Es un sistema de ecuaciones diferenciales ordinarias (derivadas respecto a una sola variable independiente $t$).
+	\item \textbf{Orden:} Es un sistema de orden 1 (el mayor orden de derivación que aparece es 1).
+	\item \textbf{Linealidad:} Es un sistema lineal (las dos ecuaciones son lineales).
+	\item \textbf{Homogeneidad:} Es un sistema homogéneo (ambas ecuaciones son homogéneas).
+	\item \textbf{Estabilidad:} El cuaderno muestra que es un sistema con un punto de silla inestable (uno de los autovalores tiene parte real positiva, según el análisis llevado a cabo).
+\end{itemize}
+
+\noindent\textbf{Representación matricial}
+
+En el cuaderno se propone la siguiente representación matricial (con la notación usada en el notebook):
+\[
+\begin{bmatrix}
+Q' \\
+I'
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 \\
+-2 & -5
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+I \\
+Q
+\end{bmatrix}.
+\]
+
+Tomándolo como \[X' = A X\] con:
+\[
+A = \begin{bmatrix} 1 & 0 \\ -2 & -5 \end{bmatrix}, \quad X = \begin{bmatrix} I \\ Q \end{bmatrix}.
+\]
+
+\noindent\textbf{Resolución del sistema}
+
+Para encontrar los autovalores se calcula
+\[\det(A-\lambda I) = 0.\]
+En el cuaderno se obtiene:
+\[
+(1-\lambda)(-5-\lambda) = 0
+\]
+y por tanto los autovalores son:
+\[
+\lambda_1 = 1, \quad \lambda_2 = -5.
+\]
+
+Los autovectores asociados se hallan resolviendo $(A-\lambda I)v=0$; en el cuaderno se dan los siguientes vectores:
+\[
+v_{\lambda_1} = \begin{bmatrix} -3 \\ 1 \end{bmatrix}, \qquad v_{\lambda_2}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}.
+\]
+
+La solución general, de acuerdo con la diagonalización propuesta, es
+\[
+X(t) = c_1 v_{\lambda_1} e^{\lambda_1 t} + c_2 v_{\lambda_2} e^{\lambda_2 t}.
+\]
+
+\noindent\textbf{Cálculo del punto crítico}
+
+El punto crítico se obtiene imponiendo $Q'=0$ e $I'=0$ en el sistema:
+\[
+\begin{cases}
+I = 0, \\
+-2 I - 5 Q = 0.
+\end{cases}
+\]
+De esto se deduce $Q=0$ e $I=0$, luego el punto crítico del sistema es $(0,0)$.
+
+\subsection*{b. Plano de fase}
+
+
+
+%-----------------------------------------------------------------------------------
+% Para producir listas enumeradas, utilice el siguiente estilo:
+% \begin{enumerate}
+% 	\item Primer Elemento
+% 	\item Segundo Elemento
+% 	%
+% 	\begin {enumerate}
+% 	\item {Segundo Elemento - Subítem Uno}
+% 	\item {Segundo Elemento - Subítem Dos}
+% 	\end {enumerate}
+% 	%
+% \end{enumerate}
+
+%-----------------------------------------------------------------------------------
+% Para producir descripciones, use el siguiente estilo:
+
+% %-----------------------------------------------------------------------------------
+% \begin{description}
+% 	\item [Primer Elemento] con su respectiva descripción.
+% 	\item [Segundo Elemento] también con su respectiva descripción.
+% \end{description}
+
+% %-----------------------------------------------------------------------------------
+% Para producir cuerpos flotantes (figuras o tablas), asegúrese de numerar
+% y etiquetar correctamente cada figura. Las referencias a las figuras deben
+% estar correctamente etiquetadas. Por ejemplo, véase la Fig. \ref{fig:ex}\ldots
+
+% \begin{figure}[h!]%
+% 	\begin{center}
+% 		\begin{tabular}{|c|c|c|} \hline
+% 			& Método 1 	& Método 2 	\\ \hline
+% 			A 			&  			&  			\\ \hline
+% 			B			& 			& 			\\ \hline
+% 			C 			& 			&  			\\ \hline
+% 		\end{tabular}
+% 		\caption{Figura de ejemplo. Recuerde especificar el origen de los datos que se muestran. \label{fig:ex}}
+% 	\end{center}
+% \end{figure}
+% %-----------------------------------------------------------------------------------
+
+% Para producir código fuente, envuélvalo en una figura flotante y
+% etiquételo correctamente. Por ejemplo, en la Fig. \ref{fig:code}
+% se muestra un código bastante conocido\ldots
+
+% % Configuración de Listings
+% \lstset{keywordstyle=\color{blue}, basicstyle=\small}
+
+% \begin{figure}[h!]%
+% 	\begin{lstlisting}[language=c]%
 		
-     int main(int argc, char** argv)
-     {
-         // Imprimiendo "Hola Mundo".
-         printf("Hello, World");
-     }
+%      int main(int argc, char** argv)
+%      {
+%          // Imprimiendo "Hola Mundo".
+%          printf("Hello, World");
+%      }
 		
-	\end{lstlisting}
-	\caption{Código fuente de ejemplo.\label{fig:code}}
-\end{figure}
+% 	\end{lstlisting}
+% 	\caption{Código fuente de ejemplo.\label{fig:code}}
+% \end{figure}
 
 %===================================================================================
 
