@@ -1,0 +1,59 @@
+%-----------------------------------------------------------------------------------
+% Para producir listas enumeradas, utilice el siguiente estilo:
+% \begin{enumerate}
+% 	\item Primer Elemento
+% 	\item Segundo Elemento
+% 	%
+% 	\begin {enumerate}
+% 	\item {Segundo Elemento - Subítem Uno}
+% 	\item {Segundo Elemento - Subítem Dos}
+% 	\end {enumerate}
+% 	%
+% \end{enumerate}
+
+%-----------------------------------------------------------------------------------
+% Para producir descripciones, use el siguiente estilo:
+
+% %-----------------------------------------------------------------------------------
+% \begin{description}
+% 	\item [Primer Elemento] con su respectiva descripción.
+% 	\item [Segundo Elemento] también con su respectiva descripción.
+% \end{description}
+
+% %-----------------------------------------------------------------------------------
+% Para producir cuerpos flotantes (figuras o tablas), asegúrese de numerar
+% y etiquetar correctamente cada figura. Las referencias a las figuras deben
+% estar correctamente etiquetadas. Por ejemplo, véase la Fig. \ref{fig:ex}\ldots
+
+% \begin{figure}[h!]%
+% 	\begin{center}
+% 		\begin{tabular}{|c|c|c|} \hline
+% 			& Método 1 	& Método 2 	\\ \hline
+% 			A 			&  			&  			\\ \hline
+% 			B			& 			& 			\\ \hline
+% 			C 			& 			&  			\\ \hline
+% 		\end{tabular}
+% 		\caption{Figura de ejemplo. Recuerde especificar el origen de los datos que se muestran. \label{fig:ex}}
+% 	\end{center}
+% \end{figure}
+% %-----------------------------------------------------------------------------------
+
+% Para producir código fuente, envuélvalo en una figura flotante y
+% etiquételo correctamente. Por ejemplo, en la Fig. \ref{fig:code}
+% se muestra un código bastante conocido\ldots
+
+% % Configuración de Listings
+% \lstset{keywordstyle=\color{blue}, basicstyle=\small}
+
+% \begin{figure}[h!]%
+% 	\begin{lstlisting}[language=c]%
+		
+%      int main(int argc, char** argv)
+%      {
+%          // Imprimiendo "Hola Mundo".
+%          printf("Hello, World");
+%      }
+		
+% 	\end{lstlisting}
+% 	\caption{Código fuente de ejemplo.\label{fig:code}}
+% \end{figure}
