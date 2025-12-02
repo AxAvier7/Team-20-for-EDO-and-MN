@@ -1,19 +1,4 @@
 %===================================================================================
-% JORNADA CIENTÍFICA ESTUDIANTIL - MATCOM, UH
-%===================================================================================
-% Esta plantilla ha sido diseñada para ser usada en los artículos de la
-% Jornada Científica Estudiantil de MatCom.
-%
-% Por favor, siga las instrucciones de esta plantilla y rellene en las secciones
-% correspondientes.
-%
-% NOTA: Necesitará el archivo 'jcematcom.sty' en la misma carpeta donde esté este
-%       archivo para poder utilizar esta plantila.
-%===================================================================================
-
-
-
-%===================================================================================
 % PREÁMBULO
 %-----------------------------------------------------------------------------------
 \documentclass[a4paper,10pt,twocolumn]{article}
@@ -70,7 +55,6 @@
 
 %-----------------------------------------------------------------------------------
 \ShortHeadings{Proyecto Conjunto EDO \& MN, Equipo No. 20}{Autores}
-% Si no hay tutores, definir macro vacía para evitar error en \@maketitle
 	\tutors{Ania Mesa, Damián Valdés, Jackson Vera, Amanda Noris, Juan Miguel Pérez}
 %===================================================================================
 
@@ -92,7 +76,7 @@
 %===================================================================================
 % Resumen y Abstract
 %-----------------------------------------------------------------------------------
-\selectlanguage{spanish} % Para producir el documento en Español
+\selectlanguage{spanish}
 
 %-----------------------------------------------------------------------------------
 % Resumen en Español
@@ -112,6 +96,7 @@
 	que permite estudiar cómo el voltaje \( \mu \) puede generar o eliminar estados estacionarios, a la vez que se interpreta la respuesta del circuito ante distintos regímenes de operación.
 
 	Por último, se analiza un circuito RLC, donde la interacción entre resistencia, inductor y capacitor lleva a un sistema lineal de dos ecuaciones que describe la evolución de la carga y la corriente. Se estudia el punto crítico del sistema, su estabilidad y se interpreta el plano de fase como representación de la descarga oscilatoria del capacitor dentro del circuito.
+	Para auxiliar al lector, se adjunta con este informe un archivo .ipynb que contiene explicaciones más resumidas y códigos en Python a los que se hacen referencia.
 
 \end{abstract}
 
@@ -135,6 +120,7 @@
 	which makes it possible to study how the voltage \( \mu \) can generate or eliminate steady states, while also interpreting the circuit's response under different operating regimes.
 
 	Finally, an RLC circuit is analyzed, where the interaction between resistance, inductor, and capacitor leads to a linear system of two equations that describes the evolution of the charge and the current. The critical point of the system and its stability are examined, and the phase plane is interpreted as a representation of the oscillatory discharge of the capacitor within the circuit.
+	To assist the reader, an .ipynb file is attached to this report containing more concise explanations and Python codes that are referenced throughout the document.
 
 \end{enabstract}
 
@@ -162,8 +148,6 @@
 ]
 %-----------------------------------------------------------------------------------
 
-
-%===================================================================================
 
 %===================================================================================
 % Resumen Extendido
@@ -239,6 +223,8 @@ I_{sp}(t) = \frac{E_0}{Z} \sin(\omega t - \delta)
 
 El \textbf{tiempo de retraso} es $\delta/\omega$ segundos.  
 
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
 %-----------------------------------------------------------------------------------
 %-----------------------------------------------------------------------------------
 
@@ -390,14 +376,61 @@ Runge-Kutta 4 & 4.1104 & 4.0470 & 4.0241 & 4.0109 & 4.0044 & 4.0394 \\
 \end{tabular}
 \end{table}
 
-\subsection*{c. Campo de Isoclinas}
+Para visualizar mejor los resultados de la aplicación de estos tres métodos numéricos a la ecuación diferencial dada, se muestran las siguientes gráficas, resultado de la ejecución del primer script de Python del Notebook adjuntado.
 
+\begin{center}
+	\includegraphics[width=0.60\textwidth]{solution.png}
+	\captionof{figure}{Solución analítica del circuito RC.}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=0.50\textwidth]{comparison.png}
+	\captionof{figure}{Comparación de métodos numéricos (Euler, Euler Mejorado y Runge-Kutta 4) con la solución analítica del circuito RC.}
+\end{center}
+
+
+\subsection*{c. Campo de Isoclinas}
+Se adjunta a continuación la representación gráfica del campo de isoclinas, resultado de ejecutar el primer script de Python que contiene el Notebook adjuntado al informe
+\begin{center}
+	\includegraphics[width=0.50\textwidth]{isoclinas.png}
+	\captionof{figure}{Campo de isoclinas del circuito RC.}
+\end{center}
+
+\textbf{¿Por qué el comportamiento exponencial en el circuito RC?} 
+La forma exponencial surge naturalmente porque la velocidad de carga es proporcional a la carga que falta por acumular, creando este característico crecimiento rápido inicial que luego se frena gradualmente, siendo el término $RC$ la constante de tiempo que determina que tan rápido se carga el capacitor.
+
+\textbf{Comportamiento inicial (t = 0)} 
+\begin{itemize}
+	\item Al conectar la batería, el capacitor está descargado ($Q = 0$)
+	\item Todo el voltaje de la batería $E_0$ cae en la resistencia
+	\item La corriente es **máxima**: $I(0) = E_0/R$
+	\item La carga comienza a fluir rápidamente al capacitor
+\end{itemize}
+
+\textbf{Comportamiento transitorio}
+\begin{itemize}
+	\item A medida que el capacitor se carga, se opone al paso de más carga
+	\item El voltaje en el capacitor aumenta: $V_C = Q/C$
+	\item El voltaje disponible para la resistencia disminuye: $V_R = E_0 - Q/C$
+	\item La corriente disminuye exponencialmente: $I(t) = \frac{E_0}{R}e^{-t/RC}$
+\end{itemize}
+
+\textbf{Comportamiento final $(t \to \infty)$} 
+\begin{itemize}
+	\item El capacitor alcanza su carga máxima: $Q_{max} = E_0C$
+	\item El voltaje del capacitor iguala al de la batería
+	\item La corriente se hace cero
+	\item El sistema alcanza el equilibrio
+\end{itemize}
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
 %-----------------------------------------------------------------------------------
 %-----------------------------------------------------------------------------------
 
 \section{Parte B: Bifurcación}
 
-En esta parte se analiza el comportamiento no lineal de un circuito eléctrico que contiene un diodo, elemento cuya relación corriente–voltaje no es lineal. Este tipo de circuitos puede presentar \textbf{bifurcaciones}, es decir, cambios cualitativos en su dinámica cuando se modifica el voltaje aplicado.
+En esta parte se analiza el comportamiento no lineal de un circuito eléctrico que contiene un diodo, elemento cuya relación corriente-voltaje no es lineal. Este tipo de circuitos puede presentar \textbf{bifurcaciones}, es decir, cambios cualitativos en su dinámica cuando se modifica el voltaje aplicado.
 
 El modelo simplificado que representa este fenómeno se describe mediante la ecuación diferencial:
 
@@ -467,13 +500,12 @@ El diagrama se representa en el plano $(\mu, z)$:
 	\item Para $\mu > 0$, aparecen dos ramas: $z = +\sqrt{\mu}$ (estable) y $z = -\sqrt{\mu}$ (inestable).
 \end{itemize}
 
-Esto corresponde a una \textbf{bifurcación tipo silla–nodo}, donde dos equilibrios surgen a partir de un valor crítico del parámetro.
+Esto corresponde a una \textbf{bifurcación tipo silla-nodo}, donde dos equilibrios surgen a partir de un valor crítico del parámetro.
 
 \begin{center}
 	\includegraphics[width=0.50\textwidth]{bifurcacion.png}
+	\captionof{figure}{Diagrama de bifurcación del modelo $\dot{z} = \mu - z^2$. La rama superior es estable y la inferior inestable.}
 \end{center}
-
-	\textbf{Figura:} Diagrama de bifurcación del modelo $\dot{z} = \mu - z^2$. La rama superior es estable y la inferior inestable.
 
 \subsection*{d. Interpretación física}
 
@@ -499,6 +531,8 @@ Este análisis evidencia cómo las bifurcaciones permiten comprender la transici
 
 %-----------------------------------------------------------------------------------
 %-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
 
 \section{Parte C: Plano de fase y estabilidad}
 
@@ -519,12 +553,12 @@ El sistema de ecuaciones diferenciales ordinarias dado es el siguiente:
 	\item \textbf{Orden:} Es un sistema de orden 1 (el mayor orden de derivación que aparece es 1).
 	\item \textbf{Linealidad:} Es un sistema lineal (las dos ecuaciones son lineales).
 	\item \textbf{Homogeneidad:} Es un sistema homogéneo (ambas ecuaciones son homogéneas).
-	\item \textbf{Estabilidad:} El cuaderno muestra que es un sistema con un punto de silla inestable (uno de los autovalores tiene parte real positiva, según el análisis llevado a cabo).
+	\item \textbf{Estabilidad:}Es un sistema estable ya que tiene autovalores complejos con parte real negativa.
 \end{itemize}
 
 \noindent\textbf{Representación matricial}
 
-En el cuaderno se propone la siguiente representación matricial (con la notación usada en el notebook):
+Representación matricial del sistema: 
 \[
 \begin{bmatrix}
 Q' \\
@@ -532,8 +566,8 @@ I'
 \end{bmatrix}
 =
 \begin{bmatrix}
-1 & 0 \\
--2 & -5
+0 & 1 \\
+-5 & -2
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
@@ -542,32 +576,97 @@ Q
 \end{bmatrix}.
 \]
 
-Tomándolo como \[X' = A X\] con:
+Tomándolo como \[X' = AX\] con:
 \[
-A = \begin{bmatrix} 1 & 0 \\ -2 & -5 \end{bmatrix}, \quad X = \begin{bmatrix} I \\ Q \end{bmatrix}.
+A = \begin{bmatrix} 1 & 0 \\ -2 & -5 \end{bmatrix}, 
+\qquad 
+X = \begin{bmatrix} I \\ Q \end{bmatrix}.
 \]
 
 \noindent\textbf{Resolución del sistema}
 
 Para encontrar los autovalores se calcula
-\[\det(A-\lambda I) = 0.\]
-En el cuaderno se obtiene:
 \[
-(1-\lambda)(-5-\lambda) = 0
+\det(A-\lambda I) = 0.
+\]
+Obteniendo:
+\[
+\lambda^2 + 2\lambda + 5 = 0
 \]
 y por tanto los autovalores son:
 \[
-\lambda_1 = 1, \quad \lambda_2 = -5.
+\lambda_{1,2} = -1 \pm 2i.
 \]
 
-Los autovectores asociados se hallan resolviendo $(A-\lambda I)v=0$; en el cuaderno se dan los siguientes vectores:
+Dado que los autovalores son complejos, tomamos uno de los dos, en este caso \(\lambda_1=-1+2i\), y resolvemos 
+\((A-\lambda_1 I)v=0\), obteniendo un autovector complejo:
 \[
-v_{\lambda_1} = \begin{bmatrix} -3 \\ 1 \end{bmatrix}, \qquad v_{\lambda_2}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}.
+v=
+\begin{bmatrix}
+1\\
+-1-2i
+\end{bmatrix}.
 \]
 
-La solución general, de acuerdo con la diagonalización propuesta, es
+La solución compleja correspondiente es entonces
 \[
-X(t) = c_1 v_{\lambda_1} e^{\lambda_1 t} + c_2 v_{\lambda_2} e^{\lambda_2 t}.
+X(t)=e^{\lambda_1 t}v
+= e^{-t}
+\begin{bmatrix}
+e^{2it}\\
+(-1-2i)e^{2it}
+\end{bmatrix}.
+\]
+
+Usando la identidad \(e^{2it}=\cos(2t)+i\sin(2t)\), se obtiene:
+\[
+e^{2it}=\cos(2t)+i\sin(2t),
+\]
+\[
+(-1-2i)e^{2it}
+= -\cos(2t)-2\sin(2t) 
++ i\,\big(-\sin(2t)+2\cos(2t)\big).
+\]
+
+Al separar la solución compleja en sus partes real e imaginaria obtenemos dos soluciones reales linealmente independientes:
+\[
+X_1(t)=
+\begin{bmatrix}
+\cos(2t)\\[4pt]
+-\cos(2t)-2\sin(2t)
+\end{bmatrix}
+\]
+
+\[
+X_2(t)=
+\begin{bmatrix}
+\sin(2t)\\[4pt]
+-\sin(2t)+2\cos(2t)
+\end{bmatrix}.
+\]
+
+Los autovectores asociados se hallan resolviendo \((A-\lambda I)v=0\); obteniendo como resultado los siguientes vectores:
+\[
+v_{\lambda_1} =     
+\begin{bmatrix}
+    \cos{2t}\\
+    -\cos{2t} - 2\sin{2t}
+\end{bmatrix}
+\]
+\[
+v_{\lambda_2}=
+\begin{bmatrix}
+    \sin{2t}\\
+    -\sin{2t} + 2\cos{2t}
+\end{bmatrix}.
+\]
+
+Concluyendo en que la solución general es
+\[
+X(t) = 
+c_1\, v_{\lambda_1} e^{\lambda_1 t}
++
+c_2\, v_{\lambda_2} e^{\lambda_2 t}.
 \]
 
 \noindent\textbf{Cálculo del punto crítico}
@@ -579,10 +678,24 @@ I = 0, \\
 -2 I - 5 Q = 0.
 \end{cases}
 \]
-De esto se deduce $Q=0$ e $I=0$, luego el punto crítico del sistema es $(0,0)$.
+De esto se deduce $Q=0$ e $I=0$, luego el punto crítico del sistema es $(0,0)$, siendo este un punto estable.
 
 \subsection*{b. Plano de fase}
+A través de la ejecución del último código en Python del Notebook adjuntado a este informe, se puede graficar el plano de fase que corresponde al sistema de ecuaciones diferenciales ordinarias cuyo punto crítico se calculó en la sección anterior.
+A continuación la correspondiente gráfica:
 
+\begin{center}
+	\includegraphics[width=0.60\textwidth]{fase.png}
+	\captionof{figure}{Plano de fase del sistema RLC con punto crítico en el $(0,0)$.}
+\end{center}
+
+
+\par
+La figura muestra un \textbf{foco estable} centrado en el origen, ya que todas las trayectorias se aproximan en espiral a $(Q,I)=(0,0)$ para cualquier condición inicial elegida. Esto se debe a que los autovalores de la matriz del sistema son complejos conjugados con parte real negativa, \(\lambda = -1 \pm 2 i\): la parte real \(-1\) provoca un decaimiento exponencial de la amplitud (factor \(e^{-t}\)), mientras que la parte imaginaria \(\pm 2i\) genera oscilaciones con frecuencia angular amortiguada \(\omega_d=2\,\mathrm{rad/s}\) (período \(T = 2\pi/\omega_d = \pi\)).
+\par
+En términos físicos, las oscilaciones corresponden al intercambio de energía entre el capacitor y el inductor, y la resistencia disipa energía, provocando una reducción progresiva de la amplitud. El sentido de giro es horario: por ejemplo, en el cuadrante superior derecho (\(Q>0, I>0\)) se tiene \(dQ/dt=I>0\) y \(dI/dt=-2I-5Q<0\), lo que desplaza el estado hacia la derecha y hacia abajo, iniciando la rotación en sentido horario.
+\par
+Las flechas del campo de pendientes indican la dirección y la magnitud instantánea del vector \((dQ/dt, dI/dt)\) en cada punto del plano; las trayectorias resultantes, trazadas para distintas condiciones iniciales, ilustran cómo el sistema retorna al equilibrio. El origen es el único punto crítico del sistema y actúa como atractor: para todas las condiciones iniciales mostradas, la carga y la corriente tienden a cero a medida que el sistema alcanza el estado de reposo.
 
 
 %-----------------------------------------------------------------------------------

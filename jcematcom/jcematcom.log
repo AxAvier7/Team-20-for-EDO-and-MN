@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.29)  30 NOV 2025 20:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.29)  1 DEC 2025 22:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -385,7 +385,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count329
 \@thisrulewidth=\dimen199
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 42.
+Package hyperref Info: Option `colorlinks' set `true' on input line 27.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count330
@@ -399,26 +399,26 @@ LaTeX Info: Redefining \% on input line 14.
 )
 \openout1 = `jcematcom.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count331
@@ -480,7 +480,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 82.
+Package hyperref Info: Link coloring ON on input line 66.
  (jcematcom.out) (jcematcom.out)
 \@outlinefile=\write3
 \openout3 = `jcematcom.out'.
@@ -488,80 +488,156 @@ Package hyperref Info: Link coloring ON on input line 82.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \. on input line 162.
-LaTeX Info: Redefining \% on input line 162.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 162.
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 148.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 162.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 148.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Info: Redefining \. on input line 162.
-LaTeX Info: Redefining \% on input line 162.
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
+
+
+LaTeX Warning: Optional argument of \twocolumn too tall on page 1.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \vbox (13.59781pt too high) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1{C:/Users/VICTUS/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 
 ]
-Overfull \hbox (24.20193pt too wide) in paragraph at lines 198--209
+Overfull \hbox (24.20193pt too wide) in paragraph at lines 182--193
  [] 
  []
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 295--307
+Overfull \hbox (5.0pt too wide) in paragraph at lines 281--293
  []$ 
  []
 
 [2]
-Overfull \hbox (5.0pt too wide) in paragraph at lines 312--325
+Overfull \hbox (5.0pt too wide) in paragraph at lines 298--311
  []$ 
  []
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 330--343
+Overfull \hbox (5.0pt too wide) in paragraph at lines 316--329
  []$ 
  []
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 348--361
+Overfull \hbox (5.0pt too wide) in paragraph at lines 334--347
  []$ 
  []
 
 
-Overfull \hbox (196.838pt too wide) in paragraph at lines 380--391
+Overfull \hbox (196.838pt too wide) in paragraph at lines 366--377
  [][] 
  []
 
+<solution.png, id=71, 612.8496pt x 510.2262pt>
+File: solution.png Graphic file (type png)
+<use solution.png>
+Package pdftex.def Info: solution.png  used on input line 382.
+(pdftex.def)             Requested size: 290.22107pt x 241.62035pt.
 
-Underfull \hbox (badness 1975) in paragraph at lines 408--409
-[]\OT1/cmr/m/n/10 donde $\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$ re-pre-sen-ta la co-rrien-te y $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/n/10 es un
- []
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 383.
+See the caption package documentation for explanation.
 
-[3]
-Underfull \hbox (badness 1515) in paragraph at lines 470--471
-[]\OT1/cmr/m/n/10 Esto co-rres-pon-de a una \OT1/cmr/bx/n/10 bi-fur-ca-ci^^Son ti-po si-
- []
 
-<bifurcacion.png, id=84, 508.7808pt x 343.5234pt>
-File: bifurcacion.png Graphic file (type png)
-<use bifurcacion.png>
-Package pdftex.def Info: bifurcacion.png  used on input line 473.
-(pdftex.def)             Requested size: 241.84843pt x 163.29587pt.
-
-Overfull \hbox (5.0pt too wide) in paragraph at lines 473--474
+Overfull \hbox (53.37263pt too wide) in paragraph at lines 382--383
  [] 
  []
 
-[4 <./bifurcacion.png>] [5
+<comparison.png, id=73, 716.9184pt x 510.2262pt>
+File: comparison.png Graphic file (type png)
+<use comparison.png>
+Package pdftex.def Info: comparison.png  used on input line 387.
+(pdftex.def)             Requested size: 241.84843pt x 172.11995pt.
 
-] (jcematcom.aux
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 388.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 387--388
+ [] 
+ []
+
+[3 <./solution.png> <./comparison.png>]
+<isoclinas.png, id=88, 859.2903pt x 714.7503pt>
+File: isoclinas.png Graphic file (type png)
+<use isoclinas.png>
+Package pdftex.def Info: isoclinas.png  used on input line 395.
+(pdftex.def)             Requested size: 241.84843pt x 201.16481pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 396.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 395--396
+ [] 
+ []
+
+
+Underfull \hbox (badness 1975) in paragraph at lines 441--442
+[]\OT1/cmr/m/n/10 donde $\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$ re-pre-sen-ta la co-rrien-te y $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/n/10 es un
+ []
+
+[4 <./isoclinas.png>]
+<bifurcacion.png, id=100, 508.7808pt x 343.5234pt>
+File: bifurcacion.png Graphic file (type png)
+<use bifurcacion.png>
+Package pdftex.def Info: bifurcacion.png  used on input line 506.
+(pdftex.def)             Requested size: 241.84843pt x 163.29587pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 507.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 506--507
+ [] 
+ []
+
+[5 <./bifurcacion.png>]
+Overfull \hbox (16.09018pt too wide) detected at line 629
+\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2 [](2\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 i [] \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) + 2 [](2\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 :
+ []
+
+<fase.png, id=111, 627.3036pt x 506.6127pt>
+File: fase.png Graphic file (type png)
+<use fase.png>
+Package pdftex.def Info: fase.png  used on input line 688.
+(pdftex.def)             Requested size: 290.22107pt x 234.38972pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 689.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (53.37263pt too wide) in paragraph at lines 688--689
+ [] 
+ []
+
+
+Underfull \hbox (badness 3724) in paragraph at lines 698--699
+\OT1/cmr/m/n/10 di-rec-ci^^Son y la mag-ni-tud ins-tant^^Sanea del vec-tor
+ []
+
+[6 <./fase.png>] (jcematcom.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 LaTeX Info: Redefining \. on input line 13.
@@ -577,17 +653,17 @@ Package rerunfilecheck Info: File `jcematcom.out' has not changed.
 (rerunfilecheck)             Checksum: EBE734D7AA0787DD27F77BD3CA40E6DB;1570.
  ) 
 Here is how much of TeX's memory you used:
- 14790 strings out of 467871
- 235557 string characters out of 5417891
- 678757 words of memory out of 5000000
- 43455 multiletter control sequences out of 15000+600000
+ 14826 strings out of 467871
+ 236161 string characters out of 5417891
+ 679754 words of memory out of 5000000
+ 43485 multiletter control sequences out of 15000+600000
  635673 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,9n,93p,473b,536s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,9n,93p,686b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\VICTUS\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1000.pk> <C:\Users\VICTUS\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on jcematcom.pdf (5 pages, 339704 bytes).
+Output written on jcematcom.pdf (6 pages, 743340 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
- 70 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 216 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
+ 90 words of extra memory for PDF output out of 10000 (max. 10000000)
 
