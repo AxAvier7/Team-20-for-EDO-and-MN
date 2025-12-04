@@ -17,6 +17,7 @@
 \usepackage{subcaption}
 \usepackage{float}
 \usepackage{booktabs}
+\usepackage{array}
 %-----------------------------------------------------------------------------------
 % Configuración
 %-----------------------------------------------------------------------------------
@@ -108,7 +109,7 @@
 \begin{enabstract}
 
 	This project addresses how ordinary differential equations describe the dynamic behavior of different types of electrical circuits. It begins by presenting the RC circuit, composed of a resistor and a capacitor, where the differential equation
-	\[
+	\[0
 	R\,\frac{dQ}{dt} + \frac{1}{C}Q(t) = E_0
 	\]
 	models the charge of the capacitor after the switch is closed. The charge function \( Q(t) \), the current \( I(t) \), and the asymptotic behavior of the system are determined, and their analysis is carried out using an isocline field.
@@ -179,7 +180,7 @@ LI'' + RI' + \frac{1}{C}I = E'(t)
 Existe una correspondencia directa entre el circuito RLC y los sistemas masa-resorte-amortiguador:
 
 \begin{center}
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|>{\centering\arraybackslash}p{4cm}|}
 \hline
 \textbf{Sistema Mecánico} & \textbf{Sistema Eléctrico} \\
 \hline
@@ -348,7 +349,7 @@ Dando un error relativo hacia adelante de un 0.000761 y un número de condición
 \end{table}
 
 \noindent
-Con el objetivo de calcular el orden de convergencia de dichos métodos haremos 10 iteraciones de ellos por cada uno de los siguientes valores de h = { 0.5; 0.2; 0.1; 0.05; 0.02; 0.01 } para asi obtener el orden entre cada uno de los tamaños de pasos usando la siguiente fórmula:
+Con el objetivo de calcular el orden de convergencia de dichos métodos haremos 10 iteraciones de ellos por cada uno de los siguientes valores de h = { 0.5; 0.2; 0.1; 0.05; 0.02} para así obtener el orden entre cada uno de los tamaños de pasos usando la siguiente fórmula:
 
 \vspace{0.5cm}
 
@@ -363,18 +364,20 @@ p = \frac{\log\left(\frac{\text{Error}_{h_1}}{\text{Error}_{h_2}}\right)}{\log\l
 \begin{table}[H]
 \centering
 \caption{Órdenes de convergencia de los métodos numéricos}
-\begin{tabular}{|c|c|c|c|c|c|c|}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.7cm}|c|c|c|c|}
 \hline
-\textbf{Método} & \textbf{0.5→0.2} & \textbf{0.2→0.1} & \textbf{0.1→0.05} & \textbf{0.05→0.02} & \textbf{0.02→0.01} & \textbf{Promedio} \\
+\textbf{Método} & \textbf{0.5→0.2} & \textbf{0.2→0.1} & \textbf{0.1→0.05} & \textbf{0.05→0.02} \\
 \hline
-Euler & 1.0595 & 1.0249 & 1.0122 & 1.0055 & 1.0024 & 1.0209 \\
+Euler & 1.0595 & 1.0249 & 1.0122 & 1.0055 \\
 \hline
-Euler Mejorado & 2.1025 & 2.0429 & 2.0218 & 2.0099 & 2.0043 & 2.0363 \\
+Euler Mejorado & 2.1025 & 2.0429 & 2.0218 & 2.0099 \\
 \hline
-Runge-Kutta 4 & 4.1104 & 4.0470 & 4.0241 & 4.0109 & 4.0044 & 4.0394 \\
+Runge-Kutta 4 & 4.1104 & 4.0470 & 4.0241 & 4.0109 \\
 \hline
 \end{tabular}
 \end{table}
+
+El promedio de los órdenes de convergencia de los métodos numéricos es de: 1.0209 para el Método de Euler, 2.0363 para el Método de Euler Mejorado y 4.0394 para el Método de Runge-Kutta 4.
 
 Para visualizar mejor los resultados de la aplicación de estos tres métodos numéricos a la ecuación diferencial dada, se muestran las siguientes gráficas, resultado de la ejecución del primer script de Python del Notebook adjuntado.
 

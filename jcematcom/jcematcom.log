@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.29)  2 DEC 2025 18:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.29)  3 DEC 2025 23:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -384,8 +384,17 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count328
 \@lastruleclass=\count329
 \@thisrulewidth=\dimen199
+) (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen256
+\ar@mcellbox=\box59
+\extrarowheight=\dimen257
+\NC@list=\toks30
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box60
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 27.
+Package hyperref Info: Option `colorlinks' set `true' on input line 28.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count330
@@ -399,39 +408,39 @@ LaTeX Info: Redefining \% on input line 14.
 )
 \openout1 = `jcematcom.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Info: Redefining \. on input line 67.
+LaTeX Info: Redefining \% on input line 67.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count331
-\scratchdimen=\dimen256
-\scratchbox=\box59
+\scratchdimen=\dimen258
+\scratchbox=\box61
 \nofMPsegments=\count332
 \nofMParguments=\count333
-\everyMPshowfont=\toks30
+\everyMPshowfont=\toks31
 \MPscratchCnt=\count334
-\MPscratchDim=\dimen257
+\MPscratchDim=\dimen259
 \MPnumerator=\count335
 \makeMPintoPDFobject=\count336
-\everyMPtoPDFconversion=\toks31
+\everyMPtoPDFconversion=\toks32
 ) (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -480,7 +489,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 66.
+Package hyperref Info: Link coloring ON on input line 67.
  (jcematcom.out) (jcematcom.out)
 \@outlinefile=\write3
 \openout3 = `jcematcom.out'.
@@ -488,18 +497,18 @@ Package hyperref Info: Link coloring ON on input line 66.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \. on input line 148.
-LaTeX Info: Redefining \% on input line 148.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 148.
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 149.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 148.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 149.
  (C:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Info: Redefining \. on input line 148.
-LaTeX Info: Redefining \% on input line 148.
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
 
 
 LaTeX Warning: Optional argument of \twocolumn too tall on page 1.
@@ -514,62 +523,62 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Overfull \hbox (24.20193pt too wide) in paragraph at lines 182--193
+Overfull \hbox (4.2391pt too wide) in paragraph at lines 183--194
  [] 
  []
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 281--293
+Overfull \hbox (5.0pt too wide) in paragraph at lines 282--294
  []$ 
  []
 
 [2]
-Overfull \hbox (5.0pt too wide) in paragraph at lines 298--311
+Overfull \hbox (5.0pt too wide) in paragraph at lines 299--312
  []$ 
  []
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 316--329
+Overfull \hbox (5.0pt too wide) in paragraph at lines 317--330
  []$ 
  []
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 334--347
+Overfull \hbox (5.0pt too wide) in paragraph at lines 335--348
  []$ 
  []
 
 
-Overfull \hbox (196.838pt too wide) in paragraph at lines 366--377
+Overfull \hbox (54.71478pt too wide) in paragraph at lines 367--378
  [][] 
  []
 
 <solution.png, id=71, 612.8496pt x 510.2262pt>
 File: solution.png Graphic file (type png)
 <use solution.png>
-Package pdftex.def Info: solution.png  used on input line 382.
+Package pdftex.def Info: solution.png  used on input line 385.
 (pdftex.def)             Requested size: 290.22107pt x 241.62035pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 383.
+(caption)                particular \caption on input line 386.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (53.37263pt too wide) in paragraph at lines 382--383
+Overfull \hbox (53.37263pt too wide) in paragraph at lines 385--386
  [] 
  []
 
 <comparison.png, id=73, 716.9184pt x 510.2262pt>
 File: comparison.png Graphic file (type png)
 <use comparison.png>
-Package pdftex.def Info: comparison.png  used on input line 387.
+Package pdftex.def Info: comparison.png  used on input line 390.
 (pdftex.def)             Requested size: 241.84843pt x 172.11995pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 388.
+(caption)                particular \caption on input line 391.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 387--388
+Overfull \hbox (5.0pt too wide) in paragraph at lines 390--391
  [] 
  []
 
@@ -577,21 +586,21 @@ Overfull \hbox (5.0pt too wide) in paragraph at lines 387--388
 <isoclinas.png, id=88, 859.2903pt x 714.7503pt>
 File: isoclinas.png Graphic file (type png)
 <use isoclinas.png>
-Package pdftex.def Info: isoclinas.png  used on input line 395.
+Package pdftex.def Info: isoclinas.png  used on input line 398.
 (pdftex.def)             Requested size: 241.84843pt x 201.16481pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 396.
+(caption)                particular \caption on input line 399.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 395--396
+Overfull \hbox (5.0pt too wide) in paragraph at lines 398--399
  [] 
  []
 
 
-Underfull \hbox (badness 1975) in paragraph at lines 441--442
+Underfull \hbox (badness 1975) in paragraph at lines 444--445
 []\OT1/cmr/m/n/10 donde $\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$ re-pre-sen-ta la co-rrien-te y $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/n/10 es un
  []
 
@@ -599,41 +608,41 @@ Underfull \hbox (badness 1975) in paragraph at lines 441--442
 <bifurcacion.png, id=100, 508.7808pt x 343.5234pt>
 File: bifurcacion.png Graphic file (type png)
 <use bifurcacion.png>
-Package pdftex.def Info: bifurcacion.png  used on input line 508.
+Package pdftex.def Info: bifurcacion.png  used on input line 511.
 (pdftex.def)             Requested size: 241.84843pt x 163.29587pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 509.
+(caption)                particular \caption on input line 512.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 508--509
+Overfull \hbox (5.0pt too wide) in paragraph at lines 511--512
  [] 
  []
 
 [5 <./bifurcacion.png>]
-Overfull \hbox (16.09018pt too wide) detected at line 631
+Overfull \hbox (16.09018pt too wide) detected at line 634
 \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 e[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2 [](2\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 i [] \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) + 2 [](2\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 :
  []
 
 <fase.png, id=111, 627.3036pt x 506.6127pt>
 File: fase.png Graphic file (type png)
 <use fase.png>
-Package pdftex.def Info: fase.png  used on input line 690.
+Package pdftex.def Info: fase.png  used on input line 693.
 (pdftex.def)             Requested size: 290.22107pt x 234.38972pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 691.
+(caption)                particular \caption on input line 694.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (53.37263pt too wide) in paragraph at lines 690--691
+Overfull \hbox (53.37263pt too wide) in paragraph at lines 693--694
  [] 
  []
 
 
-Underfull \hbox (badness 3724) in paragraph at lines 700--701
+Underfull \hbox (badness 3724) in paragraph at lines 703--704
 \OT1/cmr/m/n/10 di-rec-ci^^Son y la mag-ni-tud ins-tant^^Sanea del vec-tor
  []
 
@@ -653,15 +662,15 @@ Package rerunfilecheck Info: File `jcematcom.out' has not changed.
 (rerunfilecheck)             Checksum: EBE734D7AA0787DD27F77BD3CA40E6DB;1570.
  ) 
 Here is how much of TeX's memory you used:
- 14826 strings out of 467871
- 236161 string characters out of 5417891
- 679754 words of memory out of 5000000
- 43485 multiletter control sequences out of 15000+600000
+ 14897 strings out of 467871
+ 237268 string characters out of 5417891
+ 681175 words of memory out of 5000000
+ 43553 multiletter control sequences out of 15000+600000
  635673 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,9n,93p,686b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,11n,93p,686b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\VICTUS\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1000.pk> <C:\Users\VICTUS\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on jcematcom.pdf (6 pages, 743466 bytes).
+Output written on jcematcom.pdf (6 pages, 743733 bytes).
 PDF statistics:
  216 PDF objects out of 1000 (max. 8388607)
  36 named destinations out of 1000 (max. 500000)
